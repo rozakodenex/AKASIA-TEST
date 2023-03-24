@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+    <style>
+        /* Center the list both horizontally and vertically */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        li {
+            cursor: pointer;
+        }
+            /* Highlight the item when hovered */
+            li:hover {
+                background-color: #eee;
+            }
+            /* Bold the clicked item */
+            li.clicked {
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    <ul id="item-list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+    <script>
+		// Get the list element
+		var list = document.getElementById("item-list");
+
+		// Add a click event listener to the list
+		list.addEventListener("click", function(event) {
+			// Remove the bold formatting from the previous clicked item
+			var previous = document.querySelector(".clicked");
+			if (previous) {
+				previous.classList.remove("clicked");
+			}
+			// Add bold formatting to the clicked item
+			event.target.classList.add("clicked");
+			// Show an alert box with the content of the clicked item
+			alert(event.target.textContent);
+		});
+    </script>
+</body>
+</html>
